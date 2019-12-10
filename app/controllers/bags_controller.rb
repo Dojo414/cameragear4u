@@ -1,7 +1,8 @@
 class BagsController < ApplicationController
 
     get '/bags/new' do
-        @lenses = Lense.all  
+        @lenses = Lense.all
+        @bodies = CameraBody.all  
 
     erb :'/bags/new'
     end
