@@ -5,4 +5,10 @@
 <%if @bags.length == 0%>
     <p>Oops Looks Like you Have no Bags!</p>
     <p>Click <a href="/bags/new">Here</a> to make a new one!</p>
+    <%else%>
+        <%@bags.each do |bag|%>
+        <h3><a href='/bags/<%"#{bag.id}"%>'><%=bag.name%></a></h3>
+        <br>
+        <%end%>
 <%end%>
+

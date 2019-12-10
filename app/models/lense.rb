@@ -1,4 +1,4 @@
-class Tripod < ActiveRecord::Base
+class Lense < ActiveRecord::Base
     belongs_to :camera_bag
     belongs_to :user
 end

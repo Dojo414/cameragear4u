@@ -10,11 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_10_172325) do
+ActiveRecord::Schema.define(version: 2019_12_10_213402) do
 
   create_table "camera_bags", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
+  end
+
+  create_table "camera_bodies", force: :cascade do |t|
+    t.string "name"
+    t.string "brand"
+    t.string "sensor_size"
+    t.integer "camera_bag_id"
+  end
+
+  create_table "lenses", force: :cascade do |t|
+    t.string "brand"
+    t.string "mount"
+    t.string "focal_length"
+    t.integer "camera_bag_id"
+    t.integer "user_id"
+  end
+
+  create_table "tripods", force: :cascade do |t|
+    t.string "name"
+    t.string "brand"
+    t.string "length"
+    t.integer "camera_bag_id"
   end
 
   create_table "users", force: :cascade do |t|

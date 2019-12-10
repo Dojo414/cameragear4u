@@ -1,3 +1,4 @@
 class CameraBody < ActiveRecord::Base
-    belongs_to :bag
+    belongs_to :camera_bag
+    belongs_to :user 
 end

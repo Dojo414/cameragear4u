@@ -1,0 +1,35 @@
+<h1>Create a New Camera Bag Below</h1>
+<br>
+<form method="POST" action="/bags">
+<label>Bag Name:</label>
+<input type="text" name="bag_name"/>
+<br>
+<br>
+<label>Lenses</label>
+<%@lenses.each do |lens|%>
+    <%if lens.user_id == session[:user_id]%>
+        <p><strong><%="#{lens.brand} #{lens.mount} #{lens.focal_length}"%></strong><input type="checkbox" name="camera_bag[lens_ids][]" value="<%=lens.id%>"/></p>
+    <%end%>
+<%end%>
+<br>
+<p>Create a New Lens (Can be updated on Lens Page)<p>
+<label>Brand: </label>
+<input type="text" name="lens[brand]"/>
+<label>Mount: </label>
+<input type="text" name="lens[mount]">
+<label>Focal Length: </label>
+<input type="text" name="lens[focal_length]"/>
+<br>
+<br>
+<label>Camera Bodies</label>
+<%@bodies.each do |body|%>
+    <%if body.user_id == session[:user_id]%>
+        <p><strong><%="#{body.name}"%></strong><input type="checkbox" name="camera_bag[bodies_ids][]" value="<%=body.id%>%"/></p>
+    <%end%>
+<%end%>
+<br>
+<p>Create a New Camera Body (Can be updated on Bodies Page)</p>
+<label>Name: </label>
+<input type="text" name="camera_body[name]">
+<input type="submit" value="Create New Bag">
+</form>

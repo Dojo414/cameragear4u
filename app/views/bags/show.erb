@@ -1,0 +1,30 @@
+<h1><%=@bag.name%></h1>
+<br>
+<br>
+<h2>Camera Bodies</h2>
+<br>
+<ul>
+    <%@bodies.each do |body|%>
+    <li><a href="/bodies/<%"#{body.id}"%>"><%=body.name%></a></li>
+    <%end%>
+</ul>
+<br>
+<h2>Lenses</h2>
+<br>
+<ul>
+    <%@lenses.each do |lens|%>
+    <li><a href="/lenses/<%"#{lens.id}"%>"><%="#{lens.brand} #{lens.mount} #{lens.focal_length}"%></a></li>
+    <%end%>
+</ul>
+<br>
+<h2>Tripods</h2>
+<br>
+<ul>
+    <%@tripods.each do |tripod|%>
+    <li><a href="/tripods/<%"#{tripod.id}"%>"><%=tripod.name%></a></li>
+    <%end%>
+</ul>
+<br>
+<a href="bags/<%"#{@bag.id}"%>/edit">Edit This Bag</a>   <a href="bags/<%"#{@bag.id}"%>/delete">Delete This Bag</a>
+
+
