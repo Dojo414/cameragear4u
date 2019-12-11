@@ -1,0 +1,23 @@
+<h1>Editing <%=@tripod.name%></h1>
+<br>
+<br>
+<form method="POST" action="/tripods/<%=@tripod.id%>">
+<input id="hidden" type="hidden" name="_method" value="patch">
+<label>Edit Name: </label>
+<input type="text" name="tripod[name]" value="<%=@tripod.name%>">
+<br>
+<br>
+<label>Edit Brand: </label>
+<input type="text" name="tripod[brand]" value="<%=@tripod.brand%>">
+<br>
+<br>
+<label>Edit Length: </label>
+<input type="text" name="tripod[length]" value="<%=@tripod.length%>">
+<br>
+<br>
+<input type="submit" value="Edit Tripod">
+</form>
+<form method="POST" action="/tripods/<%=@tripod.id%>">
+<input id="hidden" type="hidden" name="_method" value="delete">
+<input type="submit" value="Delete This Tripod">
+</form>

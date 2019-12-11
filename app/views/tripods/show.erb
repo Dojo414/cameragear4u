@@ -1,0 +1,17 @@
+<h1><%=@tripod.name%></h1>
+<br>
+<br>
+<label>Tripod Name: </label>
+<%=@tripod.name%>
+<br>
+<label>Tripod Brand: </label>
+<%=@tripod.brand%>
+<br>
+<label>Tripod Length: </label>
+<%=@tripod.length%>
+<br>
+<br>
+<a href='/tripods/<%=@tripod.id%>/edit'>Edit This Tripod</a>
+<br>
+<br>
+<a href='/users/<%=session[:user_id]%>/gear'>Return to Gear</a>
