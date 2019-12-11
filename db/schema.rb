@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_10_213402) do
+ActiveRecord::Schema.define(version: 2019_12_11_140518) do
 
   create_table "camera_bags", force: :cascade do |t|
     t.string "name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_213402) do
     t.string "brand"
     t.string "sensor_size"
     t.integer "camera_bag_id"
+    t.integer "user_id"
   end
 
   create_table "lenses", force: :cascade do |t|
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_213402) do
     t.string "brand"
     t.string "length"
     t.integer "camera_bag_id"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

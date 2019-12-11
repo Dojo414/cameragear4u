@@ -1,0 +1,23 @@
+<h1>Editing <%=@lens.brand%> <%=@lens.mount%> <%=@lens.focal_length%></h1>
+<br>
+<br>
+<form method="POST" action="/lens/<%=@lens.id%>">
+<input id="hidden" type="hidden" name="_method" value="patch">
+<label>Edit Brand: </label>
+<input type="text" name="lens[brand]" value="<%=@lens.brand%>">
+<br>
+<br>
+<label>Edit Mount: </label>
+<input type="text" name="lens[mount]" value="<%=@lens.mount%>">
+<br>
+<br>
+<label>Edit Focal Length: </label>
+<input type="text" name="lens[focal_length]" value="<%=@lens.focal_length%>">
+<br>
+<br>
+<input type="submit" value="Edit Lens">
+</form>
+<form method="POST" action="/lens/<%=@lens.id%>">
+<input id="hidden" type="hidden" name="_method" value="delete">
+<input type="submit" value="Delete This Lens">
+</form>

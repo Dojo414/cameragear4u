@@ -1,4 +1,5 @@
 <h1>Create a New Camera Bag Below</h1>
+<h2>Bag must contain a Lens, Body, and Tripod</h2>
 <br>
 <form method="POST" action="/bags">
 <label>Bag Name:</label>
@@ -24,13 +25,26 @@
 <label>Camera Bodies</label>
 <%@bodies.each do |body|%>
     <%if body.user_id == session[:user_id]%>
-        <p><strong><%="#{body.name}"%></strong><input type="checkbox" name="camera_bag[bodies_ids][]" value="<%=body.id%>%"/></p>
+        <p><strong><%="#{body.name}"%></strong><input type="checkbox" name="camera_bag[bodies_ids][]" value="<%=body.id%>"/></p>
     <%end%>
 <%end%>
 <br>
 <p>Create a New Camera Body (Can be updated on Bodies Page)</p>
 <label>Name: </label>
 <input type="text" name="camera_body[name]">
+<br>
+<br>
+<label>Tripods</label>
+<%@tripods.each do |tripod|%>
+    <%if tripod.user_id == session[:user_id]%>
+        <p>><strong><%="#{tripod.name}"%></strong><input type="checkbox" name="camera_bag[tripod_ids][]" value="<%=tripod.id%>"></p>
+    <%end%>
+<%end%>
+<br>
+<p>Create a New Tripod (Can be updated on Tripods Page)</p>
+<label>Name: </label>
+<input type="text" name="tripod[name]">
+<br>
 <br>
 <input type="submit" value="Create New Bag">
 </form>

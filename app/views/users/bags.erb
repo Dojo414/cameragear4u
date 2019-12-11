@@ -7,8 +7,10 @@
     <p>Click <a href="/bags/new">Here</a> to make a new one!</p>
     <%else%>
         <%@bags.each do |bag|%>
-        <h3><a href='/bags/<%"#{bag.id}"%>'><%=bag.name%></a></h3>
+        <h3><a href='/bags/<%=bag.id%>'><%=bag.name%></a></h3>
         <br>
         <%end%>
 <%end%>
+<br>
+<a href="/bags/new">Create a New Bag</a>
 

@@ -13,7 +13,7 @@
 <br>
 <ul>
     <%@lenses.each do |lens|%>
-    <li><a href="/lenses/<%"#{lens.id}"%>"><%="#{lens.brand} #{lens.mount} #{lens.focal_length}"%></a></li>
+    <li><a href="/lens/<%="#{lens.id}"%>"><%="#{lens.brand} #{lens.mount} #{lens.focal_length}"%></a></li>
     <%end%>
 </ul>
 <br>
@@ -21,10 +21,12 @@
 <br>
 <ul>
     <%@tripods.each do |tripod|%>
-    <li><a href="/tripods/<%"#{tripod.id}"%>"><%=tripod.name%></a></li>
+    <li><a href="/tripods/<%="#{tripod.id}"%>"><%=tripod.name%></a></li>
     <%end%>
 </ul>
 <br>
-<a href="bags/<%"#{@bag.id}"%>/edit">Edit This Bag</a>   <a href="bags/<%"#{@bag.id}"%>/delete">Delete This Bag</a>
+<a href="/bags/<%="#{@bag.id}"%>/edit">Edit or Delete This Bag</a>  
+<br>
+<a href="/users/<%="#{session[:user_id]}"%>">Go Home</a>
 
 

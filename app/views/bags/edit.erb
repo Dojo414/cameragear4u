@@ -1,0 +1,58 @@
+<h1>Editing <%=@bag.name%></h1>
+<br>
+<br>
+<form action="/bags/<%=@bag.id%>" method="POST">
+<input id="hidden" type="hidden" name="_method" value="patch">
+<label>Edit Bag Name:</label>
+<input type="text" name="camera_bag[name]" value="<%=@bag.name%>">
+<br>
+<br>
+<label>Edit Lenses</label>
+<br>
+<%@lenses.each do |lens|%>
+    <input type="checkbox" name="camera_bag[lens_ids][]" value="<%=lens.id%>" <%= 'checked' if @bag.lenses.include?(lens)%>>
+    <%=lens.brand%> <%=lens.mount%> <%=lens.focal_length%>
+<%end%>
+<br>
+<br>
+<p>Create a New Lens (Can be updated on Lens Page)<p>
+<label>Brand: </label>
+<input type="text" name="lens[brand]"/>
+<label>Mount: </label>
+<input type="text" name="lens[mount]">
+<label>Focal Length: </label>
+<input type="text" name="lens[focal_length]"/>
+<br>
+<br>
+<label>Edit Camera Bodies</label>
+<br>
+<%@bodies.each do |body|%>
+    <input type="checkbox" name="camera_bag[bodies_ids][]" value="<%=body.id%>" <%= 'checked' if @bag.camera_bodys.include?(body)%>>
+    <%=body.name%>
+<%end%>
+<br>
+<br>
+<p>Create a New Camera Body (Can be updated on Bodies Page)</p>
+<label>Name: </label>
+<input type="text" name="camera_body[name]">
+<br>
+<br>
+<label>Edit Tripods</label>
+<br>
+<%@tripods.each do |tripod|%>
+    <input type="checkbox" name="camera_bag[tripods_ids][]" value="<%=tripod.id%>" <%= 'checked' if @bag.tripods.include?(tripod)%>>
+    <%=tripod.name%>
+<%end%>
+<br>
+<br>
+<p>Create a New Tripod (Can be updated on Tripods Page)</p>
+<label>Name: </label>
+<input type="text" name="tripod[name]">
+<br>
+<br>
+<input type="submit" value="Edit This Bag">
+</form>
+<form method ="POST" action="/bags/<%=@bag.id%>">
+<input id="hidden" type="hidden" name="_method" value="delete">
+<input type="submit" value="Delete This Bag">
+</form>

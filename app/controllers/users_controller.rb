@@ -9,7 +9,7 @@ class UsersController < ApplicationController
         user = User.find_by(:username => params[:username])
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id
-            redirect "/users/show"
+            redirect "/users/#{user.id}"
         else
             redirect "/signup"
         end
@@ -53,6 +53,26 @@ class UsersController < ApplicationController
         else 
             redirect 'users/login'
         end
+    end
+
+    get '/users/:id/gear' do 
+        if !logged_in?
+            redirect 'users/login'
+        end
+        @user = User.find(params[:id])
+        if @user.id == session[:user_id]
+            @lenses = @user.lenses
+            @bodies = @user.camera_bodys
+            @tripods = @user.tripods
+            erb :'/users/gear'
+        else
+            redirect 'users/login'
+        end
+    end 
+
+    post '/logout' do 
+        session.destroy 
+        redirect '/users/login'
     end
 
 end

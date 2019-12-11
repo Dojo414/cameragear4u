@@ -1,0 +1,26 @@
+<h1>Here is Your Gear</h1>
+<br>
+<br>
+<h2>Lenses</h2>
+<br>
+<%@lenses.each do |lens|%>
+    <p><strong><a href="/lens/<%=lens.id%>"><%=lens.brand%> <%=lens.mount%> <%=lens.focal_length%></a></strong></p>
+<%end%>
+<a href="/lens/new">Create a new Lens</a>
+<br>
+<h2>Camera Bodies</h2>
+<br>
+<%@bodies.each do |body|%>
+    <p><strong><a href="/bodies/<%=body.id%>"><%=body.name%></a></strong></p>
+<%end%>
+<a href="/bodies/new">Create a new Camera Body</a>
+<br>
+<h2>Tripods</h2>
+<br>
+<%@tripods.each do |tripod|%>
+    <p><strong><a href="/tripods/<%=tripod.id%>"><%=tripod.name%></a></strong></p>
+<%end%>
+<a href="/tripods/new">Create a new Tripod</a>
+<br>
+<br>
+<a href="/users/<%=@user.id%>">Go Home</a>

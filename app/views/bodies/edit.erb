@@ -1,0 +1,23 @@
+<h1>Editing <%=@body.name%></h1>
+<br>
+<br>
+<form method="POST" action="/bodies/<%=@body.id%>">
+<input id="hidden" type="hidden" name="_method" value="patch">
+<label>Edit Name: </label>
+<input type="text" name="body[name]" value="<%=@body.name%>">
+<br>
+<br>
+<label>Edit Brand: </label>
+<input type="text" name="body[brand]" value="<%=@body.brand%>">
+<br>
+<br>
+<label>Edit Sensor Size: </label>
+<input type="text" name="body[sensor_size]" value="<%=@body.sensor_size%>">
+<br>
+<br>
+<input type="submit" value="Edit Body">
+</form>
+<form method="POST" action="/bodies/<%=@body.id%>">
+<input id="hidden" type="hidden" name="_method" value="delete">
+<input type="submit" value="Delete This Body">
+</form>
